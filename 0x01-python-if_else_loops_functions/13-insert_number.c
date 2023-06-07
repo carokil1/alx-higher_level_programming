@@ -9,12 +9,13 @@
  * Otherwise - a pointer to the new node.
  */
 
-listint_t *insert_node(listint_t **head, int number) 
+listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *new_node = malloc(sizeof(listint_t));
+
 	if (new_node == NULL)
 	{
-		return NULL;
+		return (NULL);
 	}
 
 	new_node->n = number;
@@ -27,11 +28,12 @@ listint_t *insert_node(listint_t **head, int number)
 	else if (number < (*head)->n)
 	{
 		new_node->next = *head
-		*head = new_node;
-	} 
+		* head = new_node;
+	}
 	else
 	{
 		listint_t *current = *head;
+
 		while (current->next != NULL && current->next->n < number)
 		{
 			current = current->next;
@@ -40,5 +42,5 @@ listint_t *insert_node(listint_t **head, int number)
 		current->next = new_node;
 	}
 
-	return new_node;
+	return (new_node);
 }
